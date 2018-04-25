@@ -1,1 +1,20 @@
-/* it is totally okay for this to be completely empty right now, add what you need */
+html, body, #map {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+h2 {
+    font-family: sans-serif;
+}
+.floater {
+  position: absolute;
+  z-index: 999;
+}
+
+#titleFloat {
+  top: 10px;
+  left: 50px;
+  background-color: rgba(255,255,255,0.9);
+  padding: 4px;
+  border-radius:4px;
+}
