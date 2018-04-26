@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/Agritourism/FeatureServer/0'
     }).addTo(map);
     agritourism.bindPopup(function (layer) {
-        return L.Util.template('<p><h2>{Name}<\h2><h3>FARM TYPE: {FarmType}<\h3><h3>REGION: {Region}<\h3><h3>LINK: {Website}<\h3></p>', layer.feature.properties);
+        return L.Util.template('<p><h2>{Name}<\h2><h3>FARM TYPE: {FarmType}<\h3><h3>REGION: {Region}<\h3><h3> <a href={Website}>WEBPAGE</a><\h3></p>', layer.feature.properties);
     });
 
     // add a layer toggle
