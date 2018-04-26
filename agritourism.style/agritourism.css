@@ -5,6 +5,12 @@ html, body, #map {
       }
 h2 {
     font-family: sans-serif;
+    color: rgba(66,134,244);
+}
+
+h3 {
+    font-family: sans-serif;
+    color: rgba(5,52,127);
 }
 .floater {
   position: absolute;
@@ -15,6 +21,6 @@ h2 {
   top: 10px;
   left: 50px;
   background-color: rgba(255,255,255,0.9);
-  padding: 4px;
+  padding: 8px;
   border-radius:4px;
 }
