@@ -9,16 +9,23 @@ document.addEventListener('DOMContentLoaded', function () {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18
     }).addTo(map);
-    
-    // trying to add in services from geodata.gov.gr
-    /* var wmsLayer = L.tileLayer.wms('http://geodata.gov.gr/geoserver/ows', {
-        layers: 'geodata.gov.gr:81c',
-    }).addTo(map);
 
-    var wmsLayer2 = L.tileLayer.wms('http://geodata.gov.gr/geoserver/ows', {
-        layers: 'geodata.gov.gr:262a95fb-2d88-4df8-980f-5ed4de44245b',
-        transparent: true
-    }).addTo(map);*/
+    // add Natura feature layer from AGOL
+    var natura = L.esri.featureLayer({
+        url: 'http://services.arcgis.com/8LakhAMXJCkZcbPU/arcgis/rest/services/MyMapService/FeatureServer/9'
+    }).addTo(map);
+    natura.bindPopup(function (layer) {
+        return L.Util.template('<p><h2>Natural Area (in Greek):<\h2><h3>{Name}<\h3></p>', layer.feature.properties);
+    });
+
+
+    // add Blue Flag beaches feature layer from AGOL
+    var blueFlag = L.esri.featureLayer({
+        url: 'http://services6.arcgis.com/C9CQoJJu0ZvNoqUy/arcgis/rest/services/blue_flags_greece2010/FeatureServer/0',
+    }).addTo(map);
+    blueFlag.bindPopup(function (layer) {
+        return L.Util.template('{COMMUNE}', layer.feature.properties);
+    });
 
 
     // add my agritourism feature layer which was published in AGOL
@@ -29,7 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return L.Util.template('<p><h2>{Name}<\h2><h3>FARM TYPE: {FarmType}<\h3><h3>REGION: {Region}<\h3><h3>LINK: {Website}<\h3></p>', layer.feature.properties);
     });
 
+    // add a layer toggle
+    var overlays = {
+        "Enjoy Agritourism!": agritourism,
+        "Enjoy Blue Flag Beaches!": blueFlag,
+    };
 
-
-
+    // http://leafletjs.com/reference-1.0.3.html#control-layers
+    L.control.layers(overlays).addTo(map);
 });

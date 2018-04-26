@@ -3,14 +3,19 @@ html, body, #map {
         margin: 0;
         padding: 0;
       }
+h1 {
+    font-family: sans-serif;
+    color: rgba(18, 147, 206);
+}
+
 h2 {
     font-family: sans-serif;
-    color: rgba(66,134,244);
+    color: rgba(239, 150, 55);
 }
 
 h3 {
     font-family: sans-serif;
-    color: rgba(5,52,127);
+    color: rgba(18, 147, 206);
 }
 .floater {
   position: absolute;
