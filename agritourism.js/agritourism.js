@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // add Natura feature layer from AGOL
     var natura = L.esri.featureLayer({
-        url: 'http://services.arcgis.com/8LakhAMXJCkZcbPU/arcgis/rest/services/MyMapService/FeatureServer/9'
+        url: 'https://services.arcgis.com/8LakhAMXJCkZcbPU/arcgis/rest/services/MyMapService/FeatureServer/9'
     }).addTo(map);
     natura.bindPopup(function (layer) {
         return L.Util.template('<p><h2>Natural Area (in Greek):<\h2><h3>{Name}<\h3></p>', layer.feature.properties);
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // add Blue Flag beaches feature layer from AGOL
     var blueFlag = L.esri.featureLayer({
-        url: 'http://services6.arcgis.com/C9CQoJJu0ZvNoqUy/arcgis/rest/services/blue_flags_greece2010/FeatureServer/0',
+        url: 'https://services6.arcgis.com/C9CQoJJu0ZvNoqUy/arcgis/rest/services/blue_flags_greece2010/FeatureServer/0',
     }).addTo(map);
     blueFlag.bindPopup(function (layer) {
         return L.Util.template('{COMMUNE}', layer.feature.properties);
